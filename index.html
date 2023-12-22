@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Unicorn</title>
+ </head>
+ <body>
+    <script>
+      function getComputerChoice(){
+
+         let random = Math.random()*3
+       
+         if (random < 1){ 
+
+        return "rock";
+        } else if (random > 1 && random < 2){
+
+        return "paper";
+        }
+        else if (random > 2){
+
+        return "scissors";
+        }
+      
+      }
+
+      function playRound(playerSelection, computerSelection) {
+
+        playerSelection = playerSelection.toLowerCase()
+
+      
+        
+        if (computerSelection == "paper") {
+          if (playerSelection == "rock") 
+            return -1
+          if (playerSelection == "scissors")
+            return 1
+          if (playerSelection == "paper")
+            return 0
+        }
+
+
+        else if (computerSelection == "scissors") {
+          if (playerSelection == "rock")
+            return 1
+          if (playerSelection == "paper")
+            return -1
+          if (playerSelection == "scissors")
+            return 0
+        }
+
+        else if (computerSelection == "rock") {
+          if (playerSelection == "rock")
+          return 0
+          if (playerSelection == "paper")
+          return 1
+          if (playerSelection == "scissors")
+          return -1
+        }
+      }
+
+      function game(){
+       
+        let fiveGames = 0;
+
+        let playerHand = prompt("giveSmth");
+        fiveGames += playRound(playerHand, getComputerChoice())  
+        console.log('Round 1 score: ' + fiveGames)
+        console.log('Player hand: ' + playerHand)
+        
+        fiveGames += playRound(prompt("giveSmth"), getComputerChoice())  
+        console.log('Round 2 score: ' + fiveGames)
+        console.log('Round 2 score: ' + getComputerChoice())
+        console.log('Round 2 score: ' + getComputerChoice())
+        console.log('Round 2 score: ' + getComputerChoice())
+        
+        fiveGames += playRound(prompt("giveSmth"), getComputerChoice()) 
+        console.log('Round 3 score: ' + fiveGames)
+        
+        fiveGames += playRound(prompt("giveSmth"), getComputerChoice()) 
+        console.log('Round 4 score: ' + fiveGames) 
+        
+        fiveGames += playRound(prompt("giveSmth"), getComputerChoice())
+        console.log('Round 5 score: ' + fiveGames) 
+
+
+        if (fiveGames > 0) {
+        return "playerWin"
+        }
+        else if (fiveGames < 0) {
+        return "playerLose" 
+        }
+        else if (fiveGames == 0) {
+        return "noWinner" 
+        }
+
+        
+
+      }
+
+
+      
+
+      const playerSelect = "rock";
+
+        const computerSelection = getComputerChoice();
+
+
+    </script>
+ </body>
+</html>
